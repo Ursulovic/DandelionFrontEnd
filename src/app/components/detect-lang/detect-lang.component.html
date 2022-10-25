@@ -1,0 +1,27 @@
+<h2>Detect language</h2><br>
+<h4>Text:</h4>
+<textarea mdbInput class="form-control" id="text1" rows="4" [(ngModel)]="text" ></textarea><br>
+<label class="form-check-label" for="flexCheckDefault" >
+  Clean text
+</label>
+<input
+  mdbCheckbox
+  class="form-check-input"
+  type="checkbox"
+  value=""
+  id="flexCheckDefault"
+  [(ngModel)]="clean"
+/>
+
+<br><br>
+<button type="button" class="btn btn-primary" (click)="detectLang()"  >Detect</button><br><br>
+
+<div *ngIf="response.time != -1">
+
+  <div *ngFor="let lang of response.detectedLangs">
+    <h5>Language: {{lang.lang}}</h5>
+    <h5>Confidence: {{lang.confidence}}</h5>
+    -----------------------------------------------------
+  </div>
+
+</div>

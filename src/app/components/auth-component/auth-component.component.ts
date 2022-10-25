@@ -19,12 +19,20 @@ export class AuthComponentComponent implements OnInit {
   }
 
   setToken() {
-    console.log(this.token);
-    this.authService.setToken(this.token);
+    if (this.token != '') {
+      console.log(this.token);
+      this.authService.setToken(this.token);
+    }
+    else {
+      alert('You must enter non-empty token');
+    }
   }
 
   removeToken() {
     this.authService.removeToken();
+  }
+  readLocalStorageValue(): boolean {
+    return localStorage.getItem('token') == '';
   }
 
 }

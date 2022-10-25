@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  postApi: 'https://api.dandelion.eu/datatxt/nex/v1'
-
+  postApiSimilarity: 'https://api.dandelion.eu/datatxt/sim/v1',
+  postApiLangDetection: 'https://api.dandelion.eu/datatxt/li/v1',
+  postApiEntityExtraction: 'https://api.dandelion.eu/datatxt/nex/v1',
+  postApiSentimentAnalysis: 'https://api.dandelion.eu/datatxt/sent/v1',
 };
 
 /*

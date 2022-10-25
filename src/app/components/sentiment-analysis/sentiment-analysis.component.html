@@ -1,0 +1,19 @@
+<h2>Sentiment analysis</h2><br>
+<h4>Text:</h4>
+<textarea mdbInput class="form-control" id="text1" rows="4" [(ngModel)]="text" ></textarea><br>
+<label>Language:</label>
+
+<div *ngFor="let option of options;let i = index">
+  <input name="option-{{i}}" type="radio" [value]="option.value" [(ngModel)]="lang">
+  {{option.name}}
+  <br>
+</div>
+
+
+<button type="button" class="btn btn-primary" (click)="analyse()" >Analyse</button><br>
+<br>
+<div *ngIf="response.time != -1" [style]="{color: COLOR_GREEN}">
+  <h2 [style]="{color: this.color}" >Sentiment: {{response.sentiment.type}}</h2>
+  <h2>Score: {{response.sentiment.score}}</h2>
+</div>
+

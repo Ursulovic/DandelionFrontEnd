@@ -1,22 +1,13 @@
-<h3>Text similarity</h3><br>
-
-<div class="form-group">
-  <input  for="text" [ngModel]="text1" ]>Text 1:</input>
-  <textarea class="form-control" rows="5" id="text1"></textarea>
-</div>
-
-<div class="form-group">
-  <input for="text" [ngModel]="text2" ]>Text 2:</input>
-  <textarea class="form-control" rows="5" id="text2"></textarea>
-</div>
+<h2>Text similarity</h2><br>
+<h4>Text 1:</h4>
+<textarea mdbInput class="form-control" id="text1" rows="4" [(ngModel)]="this.text1" ></textarea>
+<br><h4>Text 2:</h4>
+<textarea mdbInput class="form-control" id="text2" rows="4" [(ngModel)]="this.text2" ></textarea>
 <br>
-<button type="button" class="btn btn-primary">Compare</button>
+<button type="button" class="btn btn-primary" (click)="compareText()">Compare</button>
 
 
-
-
-
-
-
-
-
+<div *ngIf="response.timestamp != ''">
+  <h2>Similarity: {{this.response.similarity}}</h2>
+  <h2>Language: {{this.response.lang}}</h2>
+</div>

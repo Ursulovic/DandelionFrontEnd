@@ -1,0 +1,76 @@
+<h2>Detect language</h2><br>
+<h4>Text:</h4>
+<textarea mdbInput class="form-control" id="text1" rows="4" [(ngModel)]="text" ></textarea><br>
+<label class="form-check-label" for="flexCheckDefault" >
+  Image
+</label>
+<input
+  mdbCheckbox
+  class="form-check-input"
+  type="checkbox"
+  value=""
+  id="Image"
+  [(ngModel)]="image"
+/>
+
+<label class="form-check-label" for="flexCheckDefault" >
+  Abstract
+</label>
+<input
+  mdbCheckbox
+  class="form-check-input"
+  type="checkbox"
+  value=""
+  id="Abstract"
+  [(ngModel)]="abstract"
+/>
+
+<label class="form-check-label" for="flexCheckDefault" >
+  Categories
+</label>
+<input
+  mdbCheckbox
+  class="form-check-input"
+  type="checkbox"
+  value=""
+  id="Categories"
+  [(ngModel)]="categories"
+/><br><br>
+
+<h4>Confience level: {{min_confidence}}</h4>
+<mat-slider min="0" max="1" step="0.01" [(ngModel)]="min_confidence"></mat-slider><br>
+
+<button type="button" class="btn btn-primary" (click)="extractEntities()" >Extract</button>
+
+<div *ngIf="response.time != -1">
+
+  <div *ngFor="let annotation of response.annotations">
+    <h4>Word: {{annotation.spot}}</h4>
+    <h4>Extracted meaning: {{annotation.title}}</h4>
+    <button class="btn btn-success" type="button" (click)="abstractCollapse.toggle()" *ngIf="annotation.abstract">
+      Abstract
+    </button>
+    <button class="btn btn-success" type="button" (click)="categoriesCollapse.toggle()" *ngIf="annotation.categories">
+      Categories
+    </button>
+    <button class="btn btn-success" type="button" (click)="imageCollapse.toggle()" *ngIf="annotation.image.full">
+      Image
+    </button><br>
+
+
+
+    <div class="mt-3"  mdbCollapse #abstractCollapse="mdbCollapse">
+      {{annotation.abstract}}
+    </div>
+    <div class="mt-3"  mdbCollapse #categoriesCollapse="mdbCollapse">
+      {{annotation.categories}}
+    </div>
+    <div class="mt-3"  mdbCollapse #imageCollapse="mdbCollapse">
+      <img src="{{annotation.image.full}}" >
+    </div>
+
+  ------------------------------------------------
+  </div>
+
+
+</div>
