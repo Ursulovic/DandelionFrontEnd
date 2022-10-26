@@ -7,6 +7,7 @@ import {DetectLangComponent} from "./components/detect-lang/detect-lang.componen
 import {EntityExtractionComponent} from "./components/entity-extraction/entity-extraction.component";
 import {SentimentAnalysisComponent} from "./components/sentiment-analysis/sentiment-analysis.component";
 import {HistoryComponent} from "./components/history/history.component";
+import {WelcomeComponent} from "./components/welcome/welcome.component";
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
     path: 'history',
     component: HistoryComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: '',
+    component: WelcomeComponent,
   }
 ];
 

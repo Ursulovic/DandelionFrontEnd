@@ -13,7 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSliderModule} from '@angular/material/slider'
 import {MdbCollapseModule} from 'mdb-angular-ui-kit/collapse';
 import { SentimentAnalysisComponent } from './components/sentiment-analysis/sentiment-analysis.component';
-import { HistoryComponent } from './components/history/history.component'
+import { HistoryComponent } from './components/history/history.component';
+import { WelcomeComponent } from './components/welcome/welcome.component'
 
 // import { MdbCollapseModule } from '@am0mdb-angular-ui-kit/collapse';
 
@@ -27,6 +28,7 @@ import { HistoryComponent } from './components/history/history.component'
     EntityExtractionComponent,
     SentimentAnalysisComponent,
     HistoryComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
